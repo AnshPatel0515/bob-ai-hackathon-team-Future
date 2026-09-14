@@ -5,23 +5,7 @@
 The system follows a client-server architecture where users interact with the React frontend through a web browser. The frontend communicates with the FastAPI backend using REST APIs. The backend handles business logic, communicates with watsonx.ai for AI inference, stores and retrieves application data from PostgreSQL, and publishes relevant notifications or updates to Slack through a webhook.
 
 flowchart TD
-    U[Logistics Manager] --> FE[Frontend Dashboard]
-    FE --> API[Backend API - Node.js / Express]
-
-    API --> DB[(PostgreSQL Database)]
-    API --> AI[AI Disruption Assistant]
-
-    EXT[Weather / Port / Traffic Data] --> AI
-    DB --> AI
-    AI --> ML[Risk Prediction & Route Optimization]
-
-    ML --> DB
-    API --> WS[Socket.IO]
-    WS --> FE
-
-    AI --> ALERT[Alerts & Recommendations]
-    ALERT --> FE
-
+  graph TD A[User / Browser] -->|HTTP| B[Frontend - React] B -->|REST API| C[Backend - FastAPI] C -->|SDK / API| D[watsonx.ai] C -->|SQL Query| E[PostgreSQL] C -->|Webhook| F[Slack] D -->|AI Inference Result| C E -->|Data| C F -->|Notifications| G[Slack Users]
 
 ## Components
 
