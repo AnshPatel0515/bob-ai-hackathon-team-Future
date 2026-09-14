@@ -4,7 +4,6 @@
 
 The system follows a client-server architecture where users interact with the React frontend through a web browser. The frontend communicates with the FastAPI backend using REST APIs. The backend handles business logic, communicates with watsonx.ai for AI inference, stores and retrieves application data from PostgreSQL, and publishes relevant notifications or updates to Slack through a webhook.
 
-```mermaid
 flowchart TD
     U[Logistics Manager] --> FE[Frontend Dashboard]
     FE --> API[Backend API - Node.js / Express]
