@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../engines"
+		},
+		{
+			"path": "../middleware"
+		},
+		{
+			"path": "../realtime"
+		},
+		{
+			"path": "../routes"
+		},
+		{
+			"path": "../utils"
+		}
+	]
+}
