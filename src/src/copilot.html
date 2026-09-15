@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Supply Chain Disruption Assistant & Fleet Utilisation Optimizer" />
+  <title>Supply Chain AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js for dashboard charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ── HEADER ────────────────────────────────────────────────── -->
+  <header id="app-header" role="banner">
+    <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+
+    <div class="header-brand">
+      <div class="logo-icon" aria-hidden="true">🚚</div>
+      <div class="brand-text">
+        <h1>Supply Chain Assistant</h1>
+        <span class="brand-sub">Fleet Utilisation Optimizer</span>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <span id="header-clock" aria-live="polite" aria-label="Current time">—</span>
+      <span class="last-updated" id="last-updated" aria-live="polite"></span>
+      <!-- Simulated time display (updated from backend) -->
+      <span class="sim-time-wrap" title="Simulated logistics time">
+        🕐 <span id="sim-time-display" aria-live="polite">Sim: initialising…</span>
+      </span>
+    </div>
+
+    <!-- Simulation controls -->
+    <div class="sim-controls" role="group" aria-label="Simulation controls">
+      <div class="sim-status" aria-live="polite">
+        <span class="sim-dot sim-live" id="sim-dot" aria-hidden="true"></span>
+        <span class="sim-label" id="sim-label">Simulated Live Data</span>
+      </div>
+      <button class="sim-btn sim-btn-stop"   id="sim-toggle-btn" onclick="handleSimToggle()"  aria-label="Toggle simulation" title="Start/Stop simulation">■ Stop</button>
+      <button class="sim-btn sim-btn-pause"  id="sim-pause-btn"  onclick="handleSimPause()"   aria-label="Pause simulation"  title="Pause simulation">⏸ Pause</button>
+      <button class="sim-btn sim-btn-resume" id="sim-resume-btn" onclick="handleSimResume()"  aria-label="Resume simulation" title="Resume simulation" disabled>▶ Resume</button>
+    </div>
+
+    <div class="header-meta">
+      <div class="notif-wrapper" style="position: relative;">
+        <button class="header-icon-btn" id="header-notif-btn" onclick="toggleNotifDrawer()" aria-label="Notifications" title="Notifications">
+          🔔<span class="notif-dot" id="notif-badge" aria-hidden="true">0</span>
+        </button>
+        <div id="notif-drawer" class="notif-drawer" aria-hidden="true"></div>
+      </div>
+      <div class="header-user" role="button" tabindex="0" aria-label="User profile">
+       
+      </div>
+      <button id="btn-reset" aria-label="Reset to initial state">Reset</button>
+    </div>
+  </header>
+
+  <!-- ── SIDEBAR ───────────────────────────────────────────────── -->
+  <nav id="sidebar" role="navigation" aria-label="Main navigation">
+    <div class="nav-section-label">Control Tower</div>
+    <div id="nav-list" role="list"></div>
+  </nav>
+
+  <!-- ── MAIN CONTENT ──────────────────────────────────────────── -->
+  <main id="main-content" role="main">
+
+    <!-- DASHBOARD -->
+    <section id="sec-dashboard" class="section" aria-label="Dashboard"></section>
+
+    <!-- ALERT & NOTIFICATION CENTER -->
+    <section id="sec-alerts" class="section" aria-label="Alert & Notification Center"></section>
+
+    <!-- DISRUPTION MANAGEMENT -->
+    <section id="sec-disruptions" class="section" aria-label="Disruption Management"></section>
+
+    <!-- SHIPMENT MANAGER -->
+    <section id="sec-shipments" class="section" aria-label="Shipment Manager"></section>
+
+    <!-- ROUTE OPTIMISATION -->
+    <section id="sec-routes" class="section" aria-label="Route Optimisation"></section>
+
+    <!-- CARRIER SELECTION -->
+    <section id="sec-carriers" class="section" aria-label="Carrier Selection"></section>
+
+    <!-- FLEET UTILISATION -->
+    <section id="sec-fleet" class="section" aria-label="Fleet Utilisation"></section>
+
+    <!-- COLD-CHAIN MONITOR -->
+    <section id="sec-coldchain" class="section" aria-label="Cold-Chain Monitor"></section>
+
+    <!-- AI INVESTIGATION BRIEF -->
+    <section id="sec-ai-brief" class="section" aria-label="AI Investigation Brief"></section>
+
+    <!-- ACTION CENTRE -->
+    <section id="sec-actions" class="section" aria-label="Action Centre"></section>
+
+    <!-- AUDIT LOG -->
+    <section id="sec-audit" class="section" aria-label="Audit Log"></section>
+
+  </main>
+
+  <!-- ── MODAL ─────────────────────────────────────────────────── -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true"
+       onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-title">Details</h3>
+        <button id="modal-close-btn" class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ── TOAST ─────────────────────────────────────────────────── -->
+  <div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ── AI CHAT BUBBLE ────────────────────────────────────────── -->
+  <button id="chat-bubble" aria-label="Open AI assistant" aria-expanded="false">
+    <span class="bubble-icon" id="chat-bubble-icon">🤖</span>
+    <span id="chat-unread" aria-label="Unread messages"></span>
+  </button>
+
+  <!-- ── AI CHAT PANEL ─────────────────────────────────────────── -->
+  <div id="chat-panel" role="complementary" aria-label="AI Supply Chain Assistant" aria-hidden="true">
+
+    <div id="chat-header">
+      <div class="ch-avatar" aria-hidden="true">🤖</div>
+      <div class="ch-info">
+        <div class="ch-name">Supply Chain AI Agent</div>
+        <div class="ch-status">Online · Synthetic data mode</div>
+      </div>
+      <button id="chat-clear" aria-label="Clear chat" title="Clear chat">🗑</button>
+      <button id="chat-close" aria-label="Close chat">✕</button>
+    </div>
+
+    <div id="chat-suggestions" role="group" aria-label="Suggested questions">
+      <button class="chat-chip" onclick="chatSend('Which shipments are affected?')">📦 Affected shipments</button>
+      <button class="chat-chip" onclick="chatSend('List delayed shipments')">⏱ Delayed</button>
+      <button class="chat-chip" onclick="chatSend('Show active disruption')">⚡ Disruption</button>
+      <button class="chat-chip" onclick="chatSend('Which fleet assets are idle?')">🚛 Idle fleet</button>
+      <button class="chat-chip" onclick="chatSend('Are any cold-chain shipments at risk?')">❄️ Cold-chain</button>
+      <button class="chat-chip" onclick="chatSend('Give me today\'s priority action plan')">✅ Action plan</button>
+      <button class="chat-chip" onclick="chatSend('Suggest an alternative route')">🗺️ Alt route</button>
+      <button class="chat-chip" onclick="chatSend('Financial risk summary')">💰 Risk</button>
+    </div>
+
+    <div id="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <div id="chat-input-row">
+      <input
+        id="chat-input" type="text"
+        placeholder="Ask about shipments, routes, fleet…"
+        aria-label="Chat message input" maxlength="300" autocomplete="off"
+        onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();chatSend();}"
+      />
+      <button id="chat-send" aria-label="Send" onclick="chatSend()">➤</button>
+    </div>
+
+  </div>
+
+  <!-- ── SCRIPTS ───────────────────────────────────────────────── -->
+  <script src="data.js"></script>
+  <script src="api-client.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
