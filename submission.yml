@@ -79,6 +79,6 @@ artifacts:
   source_code: "src/"
   setup_guide: "docs/setup-guide.md"
   architecture_doc: "docs/architecture.md"
-  demo_video: "demo/demo-video-link.txt"  
+  demo_video: "https://youtu.be/5MJPbkeBNgo"  
   screenshots: "https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link"
   presentation: "https://drive.google.com/file/d/1pZtCurWCMtUoD-Ri51r56B4P4FKYA1Wq/view?usp=drive_link"
