@@ -1,0 +1,84 @@
+# =============================================================================
+# HACKATHON SUBMISSION METADATA
+# =============================================================================
+# Instructions:
+#   - Fill in ALL required fields (marked with # REQUIRED)
+#   - Optional fields can be left as empty strings ""
+#   - Do NOT rename this file — the evaluation pipeline reads it by name
+#   - Use double quotes around all string values
+# =============================================================================
+
+team:
+  name: "Team Future"
+  track: "AI | Devop | pgAdmin4"          
+  lead:
+    name: "Ansh Patel"                          
+    email: "25dce074@charusat.edu.in"                         
+  members:
+    - name: "Jeet Patel"                         
+      email: "25dce084@charusat.edu.in"
+    - name: "Kshitij Pandya"                        
+      email: "25dce064@charusat.edu.in"
+    - name: "Dhruv Karavadra"
+      email: "25dce044@charusat.edu.in"
+
+submission:
+  title: "Supply Chain Assistant"                            
+  problem_statement: >               
+    Supply chain disruptions — weather events, port strikes, geopolitical crises — cascade
+across hundreds of active shipments in ways that are impossible to track manually. Fleet
+assets (trucks, containers, vessels) sit idle while other routes are overloaded. Cold chain
+shipments (vaccines, perishables) are especially vulnerable — a single temperature
+excursion across any leg can spoil a $500K+ cargo, but breaches are only discovered at
+delivery when it is too late.
+
+  solution_summary: >                  
+   Build a Bob solution that identifies which shipments are affected by an
+active disruption, recommends re-routing or carrier alternatives,
+identifies idle fleet assets for redeployment, and monitors cold chain IoT
+sensor logs to detect temperature excursions and classify their
+regulatory severity before delivery.
+
+  key_features:                       
+    - "Shipment Tracking"                               
+    - "Disruption Detection"
+    - "AI Risk Prediction"
+    - "Smart Route Optimization"                               
+    - "Fleet Utilisation"                              
+
+  tech_stack:
+    languages: ["Python","typeScript"]                      
+    frameworks: ["FastAPI"]                    
+    ibm_technologies: ["IBM BOB"]              
+    databases: ["PostgreSQL"]                  
+    other: ["GitHub Actions"]                  
+
+  what_we_are_most_proud_of: >        
+    AI-powered solution that predicts supply-chain disruptions early.
+Real-time shipment tracking and instant disruption alerts.
+Smart route optimization to reduce delivery delays and transportation costs.
+Better fleet utilisation by reducing idle vehicles and resources.
+Cold-chain protection for temperature-sensitive shipments.
+User-friendly dashboard that helps logistics managers make faster decisions.
+Scalable and practical idea that can be used in real-world logistics operations.
+
+  known_limitations: >                 
+   Depends on accurate and real-time data from weather, traffic, ports, and shipment systems.
+AI predictions may not always be 100% accurate.
+Live tracking requires GPS and internet connectivity.
+Initial setup and integration with existing logistics systems may be complex.
+Small companies may face high implementation and maintenance costs.
+Cold-chain monitoring requires suitable IoT temperature sensors.
+Unexpected events may occur that the system cannot predict in advance.
+
+# =============================================================================
+# ARTIFACT LOCATIONS
+# These paths are relative to the repo root. Only change if you moved files.
+# =============================================================================
+artifacts:
+  source_code: "src/"
+  setup_guide: "docs/setup-guide.md"
+  architecture_doc: "docs/architecture.md"
+  demo_video: "demo/demo-video-link.txt"  
+  screenshots: "https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link"
+  presentation: "https://drive.google.com/file/d/1pZtCurWCMtUoD-Ri51r56B4P4FKYA1Wq/view?usp=drive_link"
