@@ -7,7 +7,7 @@
 | **Team Name** | [team-Future] |
 | **Track** | [AI,DevOps,Open,PgAdmin4] |
 | **Team Lead** | [Ansh Patel] — [25dce074@charusat.edu.in] |
-| **Members** | [jeet Patel], [Kshiitij Pandya], [Druv] |
+| **Members** | [jeet Patel], [Kshiitij Pandya], [Dhruv] |
 
 
 
