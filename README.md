@@ -99,7 +99,7 @@ cp .env.example .env
 |---|---|
 | 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
 | 🖼️ Screenshots | https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link |
-| 📊 Presentation | [See presentation/slides.pdf](presentation/) |
+| 📊 Presentation | https://drive.google.com/file/d/1pZtCurWCMtUoD-Ri51r56B4P4FKYA1Wq/view?usp=drive_link |
 
 
 
