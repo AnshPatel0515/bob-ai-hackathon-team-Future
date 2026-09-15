@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | **Team Name** | [team-Future] |
-| **Track** | [AI] |
+| **Track** | [AI,DevOps,Open,PgAdmin4] |
 | **Team Lead** | [Ansh Patel] — [25dce074@charusat.edu.in] |
 | **Members** | [jeet Patel], [Kshiitij Pandya], [Druv] |
 
@@ -47,8 +47,8 @@ We built an AI-powered Supply Chain Disruption Assistant and Fleet Utilisation O
 
 | **Languages** | [TypeScript] |
 | **Frameworks** | [FastAPI] |
-| **IBM Technologies** | [IBM Bob] |
-| **Databases** | [PostgreSQL] |
+| **IBM Technologies** | [IBM Bob,IBM Cloud] |
+| **Databases** | [PostgreSQL,PgAdmin4] |
 | **Other** | [GitHub Actions] |
 
 
@@ -97,7 +97,7 @@ cp .env.example .env
 
 | Artifact | Link |
 |---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
+| 📹 Demo Video |https://youtu.be/5MJPbkeBNgo |
 | 🖼️ Screenshots | https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link |
 | 📊 Presentation | https://drive.google.com/file/d/1pZtCurWCMtUoD-Ri51r56B4P4FKYA1Wq/view?usp=drive_link |
 
