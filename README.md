@@ -98,8 +98,8 @@ cp .env.example .env
 | Artifact | Link |
 |---|---|
 | 📹 Demo Video |https://youtu.be/5MJPbkeBNgo |
-| 🖼️ Screenshots | https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link |
-| 📊 Presentation | https://drive.google.com/file/d/1pZtCurWCMtUoD-Ri51r56B4P4FKYA1Wq/view?usp=drive_link |
+| 🖼️ Screenshots |(https://drive.google.com/drive/folders/1bALPTkhDp1mPq83aoxgJbReWqe5EHdj8?usp=drive_link)|
+| 📊 Presentation |(https://drive.google.com/drive/folders/181cgMZlwJs-oFshsgBKGk6-UQ7isX6o1?usp=sharing) |
 
 
 
